@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benefits 2.7 | Premium Shopping</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        premium: '#111111',
+                        accent: '#DAA520', /* Gold Accent */
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Scroll Animation Style -->
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-neutral-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Loading Screen -->
+    <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-neutral-900 transition-opacity duration-500">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-accent"></div>
+    </div>
+
+    <!-- 1. Navigation Bar (Sticky & Responsive) -->
+    <nav class="sticky top-0 z-40 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border-b border-gray-200 dark:border-neutral-800 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-8">
+                    <a href="#" class="text-2xl font-extrabold tracking-wider text-neutral-900 dark:text-white">BENEFITS <span class="text-accent">2.7</span></a>
+                    <div class="hidden md:flex space-x-6 font-medium">
+                        <a href="#" class="hover:text-accent transition">Home</a>
+                        <a href="#shop" class="hover:text-accent transition">Shop</a>
+                        <a href="#categories" class="hover:text-accent transition">Categories</a>
+                        <a href="#faq" class="hover:text-accent transition">FAQ</a>
+                        <a href="#contact" class="hover:text-accent transition">Contact</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!-- Search Bar (Desktop) -->
+                    <div class="relative hidden sm:block">
+                        <input type="text" placeholder="Search products..." class="bg-gray-100 dark:bg-neutral-800 px-4 py-2 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-accent">
+                        <i class="fa-solid fa-magnifying-glass absolute right-3 top-3 text-gray-400"></i>
+                    </div>
+                    <!-- Dark Mode Toggle -->
+                    <button onclick="toggleDarkMode()" class="p-2 hover:text-accent transition text-lg"><i class="fa-solid fa-moon" id="theme-icon"></i></button>
+                    <!-- Wishlist -->
+                    <button class="p-2 hover:text-accent transition text-lg relative"><i class="fa-regular fa-heart"></i><span class="absolute top-0 right-0 bg-accent text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">0</span></button>
+                    <!-- Cart Icon -->
+                    <button onclick="toggleCart()" class="p-2 hover:text-accent transition text-lg relative"><i class="fa-solid fa-bag-shopping"></i><span class="absolute top-0 right-0 bg-accent text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">1</span></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Hero Section (Gradient Background & Animation) -->
+    <section class="relative min-h-[85vh] flex items-center bg-gradient-to-tr from-gray-100 via-white to-gray-200 dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-800 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-accent font-semibold tracking-widest uppercase">Luxury & Premium Comfort</span>
+                <h1 class="text-5xl md:text-7xl font-black tracking-tight leading-none text-neutral-900 dark:text-white">Discover True <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-600">Excellence</span></h1>
+                <p class="text-gray-600 dark:text-gray-400 text-lg max-w-md">Experience premium quality products curated just for your luxury lifestyle at unbeatable values.</p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#shop" class="bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:hover:bg-gray-100 dark:text-neutral-900 text-white font-bold px-8 py-4 rounded-full transition shadow-xl transform hover:-translate-y-1">Shop Now</a>
+                    <a href="#shop" class="border-2 border-neutral-900 dark:border-white font-bold px-8 py-4 rounded-full transition hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-neutral-900 transform hover:-translate-y-1">Explore Collection</a>
+                </div>
+            </div>
+            <div class="relative flex justify-center">
+                <div class="w-72 h-72 md:w-96 md:h-96 bg-accent/20 rounded-full blur-3xl absolute top-10 animate-pulse"></div>
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600" alt="Hero Product" class="relative z-10 w-full max-w-md drop-shadow-[0_35px_35px_rgba(0,0,0,0.3)] dark:drop-shadow-[0_35px_35px_rgba(255,255,255,0.05)] transform hover:scale-105 transition duration-500">
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Featured Categories -->
+    <section id="categories" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-black uppercase tracking-wider">Featured Categories</h2>
+            <div class="h-1 w-20 bg-accent mx-auto mt-3"></div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+            <div class="group relative rounded-2xl overflow-hidden h-48 cursor-pointer shadow-lg transform hover:-translate-y-2 transition duration-300">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=300" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                    <h3 class="text-white font-bold text-lg">Fashion</h3>
+                </div>
+            </div>
+            <div class="group relative rounded-2xl overflow-hidden h-48 cursor-pointer shadow-lg transform hover:-translate-y-2 transition duration-300">
+                <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?q=80&w=300" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                    <h3 class="text-white font-bold text-lg">Electronics</h3>
+                </div>
+            </div>
+            <div class="group relative rounded-2xl overflow-hidden h-48 cursor-pointer shadow-lg transform hover:-translate-y-2 transition duration-300">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=300" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                    <h3 class="text-white font-bold text-lg">Accessories</h3>
+                </div>
+            </div>
+            <div class="group relative rounded-2xl overflow-hidden h-48 cursor-pointer shadow-lg transform hover:-translate-y-2 transition duration-300">
+                <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=300" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                    <h3 class="text-white font-bold text-lg">Lifestyle</h3>
+                </div>
+            </div>
+            <div class="group relative rounded-2xl overflow-hidden h-48 cursor-pointer shadow-lg transform hover:-translate-y-2 transition duration-300">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=300" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                    <h3 class="text-white font-bold text-lg">New Arrival</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Featured Products & 5. Best Sellers -->
+    <section id="shop" class="py-20 bg-gray-100 dark:bg-neutral-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black uppercase tracking-wider">Our Premium Products</h2>
+                <div class="h-1 w-20 bg-accent mx-auto mt-3"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white dark:bg-neutral-900 rounded-3xl p-4 shadow-xl relative group transform hover:-translate-y-2 transition duration-300">
+                    <span class="absolute top-4 left-4 z-10 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Bestseller</span>
+                    <button class="absolute top-4 right-4 z-10 bg-white/80 dark:bg-black/50 p-2.5 rounded-full hover:text-red-500 transition shadow-md"><i class="fa-regular fa-heart"></i></button>
+                    <div class="overflow-hidden rounded-2xl h-64 bg-gray-50 dark:bg-neutral-800 flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400" class="object-contain h-48 group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="mt-4 space-y-2">
+                        <div class="flex text-amber-500 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><span class="text-gray-400 ml-2">(4.9)</span></div>
+                        <h3 class="font-bold text-lg line-clamp-1">Premium Crimson Sports Shoe</h3>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl font-black text-accent">$120.00</span>
+                            <span class="text-sm text-gray-400 line-through">$180.00</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-2">
+                            <button class="bg-neutral-900 dark:bg-white dark:text-neutral-900 text-white font-bold text-xs py-3 rounded-xl hover:opacity-90 transition">Add To Cart</button>
+                            <a href="#checkout" class="bg-accent text-white font-bold text-xs py-3 rounded-xl text-center hover:opacity-90 transition flex items-center justify-center">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white dark:bg-neutral-900 rounded-3xl p-4 shadow-xl relative group transform hover:-translate-y-2 transition duration-300">
+                    <button class="absolute top-4 right-4 z-10 bg-white/80 dark:bg-black/50 p-2.5 rounded-full hover:text-red-500 transition shadow-md"><i class="fa-regular fa-heart"></i></button>
+                    <div class="overflow-hidden rounded-2xl h-64 bg-gray-50 dark:bg-neutral-800 flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400" class="object-contain h-48 group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="mt-4 space-y-2">
+                        <div class="flex text-amber-500 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><span class="text-gray-400 ml-2">(4.2)</span></div>
+                        <h3 class="font-bold text-lg line-clamp-1">Minimalist Luxury Smart Watch</h3>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl font-black text-accent">$250.00</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-2">
+                            <button class="bg-neutral-900 dark:bg-white dark:text-neutral-900 text-white font-bold text-xs py-3 rounded-xl hover:opacity-90 transition">Add To Cart</button>
+                            <a href="#checkout" class="bg-accent text-white font-bold text-xs py-3 rounded-xl text-center hover:opacity-90 transition flex items-center justify-center">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Why Choose Benefits 2.7 -->
+    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-black uppercase tracking-wider">Why Choose Benefits 2.7</h2>
+            <div class="h-1 w-20 bg-accent mx-auto mt-3"></div>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-5 gap-8 text-center">
+            <div class="space-y-3 p-6 glass-card rounded-3xl shadow-sm"><div class="text-3xl text-accent"><i class="fa-solid fa-truck-fast"></i></div><h4 class="font-bold">Fast Delivery</h4><p class="text-xs text-gray-500">Worldwide express delivery</p></div>
+            <div class="space-y-3 p-6 glass-card rounded-3xl shadow-sm"><div class="text-3xl text-accent"><i class="fa-solid fa-shield-halved"></i></div><h4 class="font-bold">Secure Shopping</h4><p class="text-xs text-gray-500">100% protected payments</p></div>
+            <div class="space-y-3 p-6 glass-card rounded-3xl shadow-sm"><div class="text-3xl text-accent"><i class="fa-solid fa-crown"></i></div><h4 class="font-bold">Best Quality</h4><p class="text-xs text-gray-500">Handpicked premium products</p></div>
+            <div class="space-y-3 p-6 glass-card rounded-3xl shadow-sm"><div class="text-3xl text-accent"><i class="fa-solid fa-arrow-rotate-left"></i></div><h4 class="font-bold">Easy Returns</h4><p class="text-xs text-gray-500">30 days return window</p></div>
+            <div class="space-y-3 p-6 glass-card rounded-3xl shadow-sm"><div class="text-3xl text-accent"><i class="fa-solid fa-headset"></i></div><h4 class="font-bold">24/7 Support</h4><p class="text-xs text-gray-500">Dedicated helpline desk</p></div>
+        </div>
+    </section>
+
+    <!-- 7. Customer Reviews -->
+    <section class="py-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-neutral-900 dark:to-neutral-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black uppercase tracking-wider">Customer Reviews</h2>
+                <div class="h-1 w-20 bg-accent mx-auto mt-3"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-3xl shadow-xl flex flex-col justify-between">
+                    <p class="italic text-gray-600 dark:text-gray-300">"The quality of the products is mind-blowing. Delivery was incredibly fast, and customer service guided me smoothly through everything."</p>
+                    <div class="flex items-center gap-4 mt-6">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100" class="w-12 h-12 object-cover rounded-full border-2 border-accent">
+                        <div>
+                            <h4 class="font-bold">Sophia Loren</h4>
+                            <div class="text-amber-500 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Special Offer -->
+    <section class="my-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-neutral-950 rounded-3xl p-12 relative overflow-hidden text-white grid md:grid-cols-2 items-center gap-8">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(218,165,32,0.2),transparent_50%)]"></div>
+            <div class="space-y-6 relative z-10">
+                <span class="text-accent font-bold uppercase tracking-widest">Limited Time Deal</span>
+                <h2 class="text-4xl md:text-5xl font-black">Get 50% Off On Luxury Accessories</h2>
+                <div class="flex gap-4 text-center">
+                    <div class="bg-white/10 px-4 py-3 rounded-2xl min-w-[70px]"><span id="days" class="text-2xl font-black text-accent">00</span><p class="text-xs">Days</p></div>
+                    <div class="bg-white/10 px-4 py-3 rounded-2xl min-w-[70px]"><span id="hours" class="text-2xl font-black text-accent">00</span><p class="text-xs">Hrs</p></div>
+                    <div class="bg-white/10 px-4 py-3 rounded-2xl min-w-[70px]"><span id="minutes" class="text-2xl font-black text-accent">00</span><p class="text-xs">Mins</p></div>
+                    <div class="bg-white/10 px-4 py-3 rounded-2xl min-w-[70px]"><span id="seconds" class="text-2xl font-black text-accent">00</span><p class="text-xs">Secs</p></div>
+                </div>
+                <a href="#shop" class="inline-block bg-accent text-white font-bold px-8 py-4 rounded-full shadow-lg hover:bg-amber-600 transition">Shop Now</a>
+            </div>
+            <div class="flex justify-center relative z-10">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400" class="w-72 drop-shadow-2xl animate-bounce duration-[3s]">
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Sliding Shopping Cart Panel -->
+    <div id="cart-panel" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-white dark:bg-neutral-900 shadow-2xl p-6 transform translate-x-full transition-transform duration-300 overflow-y-auto">
+        <div class="flex items-center justify-between border-b pb-4 mb-6">
+            <h3 class="text-xl font-black uppercase"><i class="fa-solid fa-bag-shopping mr-2 text-accent"></i>Your Cart</h3>
+            <button onclick="toggleCart()" class="text-xl hover:text-red-500 transition"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="space-y-4">
+            <div class="flex items-center gap-4 bg-gray-50 dark:bg-neutral-800 p-3 rounded-2xl relative">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=100" class="w-16 h-16 object-contain rounded-xl bg-white dark:bg-neutral-900">
+                <div class="flex-1">
+                    <h4 class="font-bold text-sm line-clamp-1">Premium Crimson Sports Shoe</h4>
+                    <p class="text-accent font-black text-sm mt-1">$120.00</p>
+                    <div class="flex items-center gap-2 mt-2">
+                        <button class="bg-gray-200 dark:bg-neutral-700 h-6 w-6 rounded-full text-xs font-bold">-</button>
+                        <span class="text-sm font-bold">1</span>
+                        <button class="bg-gray-200 dark:bg-neutral-700 h-6 w-6 rounded-full text-xs font-bold">+</button>
+                    </div>
+                </div>
+                <button class="absolute top-3 right-3 text-gray-400 hover:text-red-500 transition"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+        </div>
+        <div class="border-t mt-8 pt-4 space-y-4">
+            <div class="flex justify-between font-bold text-lg"><span>Total Price:</span><span class="text-accent">$120.00</span></div>
+            <a href="#checkout" onclick="toggleCart()" class="block w-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 font-bold py-4 rounded-xl text-center shadow-lg transition hover:opacity-90">Proceed to Checkout</a>
+        </div>
+    </div>
+
+    <!-- 10. Checkout Section -->
+    <section id="checkout" class="py-20 bg-gray-50 dark:bg-neutral-950">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black uppercase tracking-wider">Secure Checkout</h2>
+                <div class="h-1 w-20 bg-accent mx-auto mt-3"></div>
+            </div>
+            <div class="grid md:grid-cols-5 gap-8">
+                <form action="https://formspree.io/f/your_form_id" method="POST" class="bg-white dark:bg-neutral-900 p-8 rounded-3xl shadow-xl md:col-span-3 space-y-4">
+                    <div><label class="block text-xs font-bold uppercase mb-2">Full Name *</label><input type="text" name="name" required class="w-full bg-gray-50 dark:bg-neutral-800 border border-transparent focus:border-accent p-3 rounded-xl outline-none transition"></div>
+                    <div><label class="block text-xs font-bold uppercase mb-2">Phone Number *</label><input type="tel" name="phone" required class="w-full bg-gray-50 dark:bg-neutral-800 border border-transparent focus:border-accent p-3 rounded-xl outline-none transition"></div>
+                    <div><label class="block text-xs font-bold uppercase mb-2">Full Address *</label><textarea name="address" rows="3" required class="w-full bg-gray-50 dark:bg-neutral-800 border border-transparent focus:border-accent p-3 rounded-xl outline-none transition"></textarea></div>
+                    <div><label class="block text-xs font-bold uppercase mb-2">Order Notes (Optional)</label><input type="text" name="notes" class="w-full bg-gray-50 dark:bg-neutral-800 border border-transparent focus:border-accent p-3 rounded-xl outline-none transition"></div>
+                    <button type="submit" class="w-full bg-accent text-white font-bold py-4 rounded-xl shadow-lg hover:opacity-90 transition uppercase tracking-wider">Place Order</button>
+                </form>
+                <div class="bg-white dark:bg-neutral-900 p-8 rounded-3xl shadow-xl md:col-span-2 h-fit space-y-4">
+                    <h3 class="font-black border-b pb-2 text-lg uppercase">Order Summary</h3>
+                    <div class="flex justify-between text-sm"><span>Premium Crimson Shoe x 1</span><span class="font-bold">$120.00</span></div>
+                    <div class="border-t pt-2 flex justify-between font-bold text-lg"><span>Total:</span><span class="text-accent">$120.00</span></div>
+                    <p class="text-xs text-gray-400 mt-4"><i class="fa-solid fa-lock mr-1"></i> Cash on Delivery available via secure processing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. FAQ Section -->
+    <section id="faq" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-black uppercase tracking-wider">Frequently Asked Questions</h2>
+            <div class="h-1 w-20 bg-accent mx-auto mt-3"></div>
+        </div>
+        <div class="space-y-4">
+            <details class="group bg-white dark:bg-neutral-900 rounded-2xl p-5 shadow-md cursor-pointer transition [&_summary::-webkit-details-marker]:hidden" open>
+                <summary class="flex justify-between items-center font-bold"><span>What is the delivery timeline?</span><span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-accent"></i></span></summary>
+                <p class="text-sm text-gray-500 mt-3 pl-2">Usually inside city areas it takes 2-3 business days, for outer regions it may stretch up to 5 days max.</p>
+            </details>
+            <details class="group bg-white dark:bg-neutral-900 rounded-2xl p-5 shadow-md cursor-pointer transition [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex justify-between items-center font-bold"><span>What payment methods do you accept?</span><span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-accent"></i></span></summary>
+                <p class="text-sm text-gray-500 mt-3 pl-2">Currently, we fully prioritize Cash on Delivery (COD) alongside secure mobile wallet transactions.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- 12. Contact Section (Your Details Connected) -->
+    <section id="contact" class="py-20 bg-gray-100 dark:bg-neutral-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+            <div class="mb-4">
+                <h2 class="text-3xl font-black uppercase tracking-wider">Connect With Us</h2>
+                <div class="h-1 w-20 bg-accent mx-auto mt-3"></div>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6">
+                <!-- Connected to Your WhatsApp -->
+                <a href="https://wa.me/8801779873047" target="_blank" class="flex items-center gap-3 bg-green-600 text-white font-bold px-8 py-4 rounded-full shadow-lg transform hover:-translate-y-1 transition"><i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp Us</a>
+                <!-- Connected to Your Facebook Page -->
+                <a href="https://facebook.com/Benefits2.7" target="_blank" class="flex items-center gap-3 bg-blue-600 text-white font-bold px-8 py-4 rounded-full shadow-lg transform hover:-translate-y-1 transition"><i class="fa-brands fa-facebook-f text-xl"></i> Facebook Page</a>
+                <a href="mailto:info@benefits.com" class="flex items-center gap-3 bg-neutral-800 text-white font-bold px-8 py-4 rounded-full shadow-lg transform hover:-translate-y-1 transition"><i class="fa-regular fa-envelope text-xl"></i> Send Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. Footer -->
+    <footer class="bg-neutral-950 text-gray-400 py-12 border-t border-neutral-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div class="space-y-4">
+                <h3 class="text-white text-xl font-extrabold tracking-wider">BENEFITS <span class="text-accent">2.7</span></h3>
+                <p class="text-sm">Premium curated fashion and lifestyle experiences built uniquely for smart luxury connoisseurs globally.</p>
+            </div>
+            <div class="space-y-2">
+                <h4 class="text-white font-bold uppercase text-sm mb-2">Quick Links</h4>
+                <a href="#" class="block text-sm hover:text-white transition">Home</a>
+                <a href="#shop" class="block text-sm hover:text-white transition">Shop All</a>
+                <a href="#faq" class="block text-sm hover:text-white transition">Help Center</a>
+            </div>
+            <div class="space-y-2">
+                <h4 class="text-white font-bold uppercase text-sm mb-2">Legal Context</h4>
+                <a href="#" class="block text-sm hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="block text-sm hover:text-white transition">Terms & Conditions</a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-neutral-900 pt-6 text-center text-xs">
+            Copyright © 2026 Benefits 2.7. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button onclick="scrollToTop()" id="back-to-top" class="fixed bottom-6 left-6 hidden bg-accent text-white p-3.5 rounded-full shadow-2xl z-40 transition transform hover:scale-110"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Floating Chat Buttons (Connected to Your Info) -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
+        <a href="https://wa.me/8801779873047" target="_blank" class="bg-green-500 text-white p-4 rounded-full shadow-2xl flex items-center justify-center text-xl hover:scale-110 transition"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://m.me/Benefits2.7" target="_blank" class="bg-blue-500 text-white p-4 rounded-full shadow-2xl flex items-center justify-center text-xl hover:scale-110 transition"><i class="fa-brands fa-facebook-messenger"></i></a>
+    </div>
+
+    <!-- JavaScript Implementation -->
+    <script>
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            loader.classList.add('opacity-0');
+            setTimeout(() => loader.remove(), 500);
+        });
+
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.className = 'fa-solid fa-moon';
+            } else {
+                html.classList.add('dark');
+                icon.className = 'fa-solid fa-sun text-accent';
+            }
+        }
+
+        function toggleCart() {
+            const panel = document.getElementById('cart-panel');
+            panel.classList.toggle('translate-x-full');
+        }
+
+        window.onscroll = function() {
+            const btn = document.getElementById('back-to-top');
+            if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+                btn.classList.remove('hidden');
+            } else {
+                btn.classList.add('hidden');
+            }
+        };
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 5);
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = d < 10 ? '0' + d : d;
+            document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
+            document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
+            document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
+        }
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
